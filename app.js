@@ -9,6 +9,8 @@ function agregarAmigo() {
     if (nombreIngresadoUsuario !== "") { //si el campo de texto no está vacío se aplica en .push y se agrega el nombre al array.
         amigos.push(nombreIngresadoUsuario)
         document.getElementById("amigo").value = "";
+
+        mostrarListaAmigos();
     }
 }
 }
