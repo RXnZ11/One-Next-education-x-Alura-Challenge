@@ -1,12 +1,14 @@
-let amigos = []; //almacenar el nombre los amigos
+let amigos = []; 
 
-console.log(amigos) //muestra en la consola que los nombres están siendo registrados en el array amigos
+console.log(amigos) 
 function agregarAmigo() {
     let nombreIngresadoUsuario = document.getElementById("amigo").value.trim();
     if(nombreIngresadoUsuario === "") {
         alert("El campo está vacío, por favor ingrese un nombre.");
-} else {
-    if (nombreIngresadoUsuario !== "") { //si el campo de texto no está vacío se aplica en .push y se agrega el nombre al array.
+        return;
+ 
+}   else {
+    if (nombreIngresadoUsuario !== "") { 
         amigos.push(nombreIngresadoUsuario)
         document.getElementById("amigo").value = "";
 
@@ -22,6 +24,22 @@ function mostrarListaAmigos () {
     for(let i = 0 ; i < amigos.length ; i++) {
         lista.innerHTML += `<li> ${amigos[i]}</li>` ;
     }
+}
+
+function sortearAmigo (){    
+    if(amigos.length === 0){
+        alert("No hay nombres de amigos registrados.");
+        return;
+    
+    }if(amigos.length < 2){
+        alert("Ingrese un nombre más, se necesitan mínimo 2 para sortear.");
+        return;
+    }
+
+    let nombreSorteado = Math.floor(Math.random() * amigos.length);
+    let  resultado = amigos[nombreSorteado];
+
+    document.getElementById("resultado").textContent = `El nombre ganador es: ${resultado}`;
 }
         
     
